@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.wrapper {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.first-nav {
+  width: 20%;
+}
+.second-nav {
+  width: 60%;
+}
+.third-nav {
+  width: 20%;
+  text-align: right;
+}
+.third-nav img {
+  max-width: 30px;
+  margin-left: 20px;
+}
+.nav-item {
+  display: flex;
+  justify-content: flex-start;
+  list-style: none;
+  gap: 25px;
+}
+.nav-item li:hover {
+  cursor: pointer;
+}
+hr {
+  margin-top: 30px;
+}
+.cart-details {
+  width: 250px;
+  height: 150px;
+  border-radius: 7px;
+  background-color: hsl(0, 2%, 91%);
+  opacity: 96%;
+  position: fixed;
+  right: 200px;
+  top: 50px;
+  display: none;
+}
+.show {
+  display: block;
+}
+.circle {
+  border-radius: 25px;
+  border: 2px solid hsl(26, 100%, 55%);
+}
+.cart-details hr {
+  margin-top: 15px;
+}
+.cart-details h5 {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.cart-details p {
+  margin-top: 30px;
+  text-align: center;
+}
+/* The main section*/
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+}
+.aside {
+  justify-content: center;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  order: -1;
+  margin-left: 40px;
+}
+.aside img {
+  max-width: 350px;
+  border-radius: 12px;
+}
+.aside-2 {
+  display: flex;
+  gap: 23px;
+  margin-top: 20px;
+}
+.outline {
+  border: 2px solid hsl(26, 100%, 55%);
+}
+.aside-2 img {
+  max-width: 70px;
+}
+.article {
+  max-width: 49%;
+  align-self: center;
+}
+.p {
+  margin-bottom: 20px;
+}
+.h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+.h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: hsl(26, 100%, 55%);
+}
+.h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+.h3-box {
+  background-color: hsl(25, 100%, 94%);
+  border-radius: 6px;
+  padding: 2px 5px;
+  font-size: 18px;
+  margin-left: 5px;
+}
+.line-tru {
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+.btn {
+  margin-left: 10px;
+  margin-bottom: 30px;
+  background-color: hsl(26, 100%, 55%);
+  padding: 10px 50px;
+  border: none;
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  justify-content: center;
+  text-align: center;
+}
+.btn img {
+  width: 12px;
+  margin-right: 5px;
+  fill: hsl(0, 0%, 100%);
+}
+.btn:hover {
+  cursor: pointer;
+}
+.add-cart {
+  display: inline-flex;
+  background-color: hsl(223, 64%, 98%);
+  border-radius: 10px;
+  width: 100px;
+  height: 35px;
+  padding: 4px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-cart .minus {
+  margin-bottom: 6px;
+}
+.add-cart:hover {
+  cursor: pointer;
+}
