@@ -33,16 +33,19 @@ function run() {
   if (text.textContent > 0 && text.textContent < 6) {
     p.remove();
     // the client genrated cart items
-    
+    let itemName = document.querySelector('h1');
     let cardDetails = document.querySelector(".cart-details");
     let tag = document.createElement("div");
     tag.classList.add("item-cart");
-      tag.innerHTML = `
+    tag.innerHTML = `
       <img 
         src="images/image-product-2-thumbnail.jpg" 
         alt="small-cart-img" 
         class="small-cart-img"
       >
+      <span class="item-name">
+        ${itemName}
+      </span>
       <div id="qty-div">
         <label for="qty-no">QTY</label>
         <select name="qty-no" id="qty-no">
@@ -56,18 +59,24 @@ function run() {
       `;
     cardDetails.appendChild(tag);
 
-    
-      // increase quantity of the client genrated cart items
+    // increase quantity of the client genrated cart items
     let qty = document.querySelector("#qty-no");
     let option = document.querySelectorAll("option");
     qty.value = text.textContent;
     option.innerHTML = qty.value;
-    console.log(qty.value);
-        // qty.value++;
-    // button.removeEventListener("click", run);
+    
+    
+    // for (let i = 0; i < itemName.length; i++) {
       
+      if (itemName.innerText === itemName) {
+        alert("Item already added to cart");
+        
+      //}
+    }
 
-
+    
+    // qty.value++;
+    // button.removeEventListener("click", run);
 
     // let text = document.createTextNode("hello");
     // let img = document.createElement("img");
