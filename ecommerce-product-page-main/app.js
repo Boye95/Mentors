@@ -26,14 +26,18 @@ function outline() {
   avatar.classList.toggle("circle");
 }
 
-let button = document.querySelector(".btn");
+let button = document.querySelectorAll(".btn");
 let p = document.querySelector(".p");
-button.addEventListener("click", run); //{ once: true }
-function run() {
-  if (text.textContent > 0 && text.textContent < 6) {
+
+button.forEach((btn) => {
+  btn.addEventListener("click", addItem);
+});
+
+function addItem() {
+  if (text.textContent > 0) {
     p.remove();
-    // the client genrated cart items
-    let itemName = document.querySelector('h1');
+    // the client generated cart items
+    let itemName = document.querySelector(".h1").innerText;
     let cardDetails = document.querySelector(".cart-details");
     let tag = document.createElement("div");
     tag.classList.add("item-cart");
@@ -58,35 +62,45 @@ function run() {
       </div>
       `;
     cardDetails.appendChild(tag);
+    let spanName = document.querySelectorAll(".item-name");
+    spanName.forEach((span) => {
+      if (span.innerText.trim() === itemName) {
+        button.removeEventListener("click", addItem);
+        console.log("Item already added to cart");
+        
+      }
+      // console.log(span.innerText.trim());
+      // console.log(itemName);
+    });
 
-    // increase quantity of the client genrated cart items
+    
+    // increase quantity of the client generated cart items
     let qty = document.querySelector("#qty-no");
     let option = document.querySelectorAll("option");
     qty.value = text.textContent;
     option.innerHTML = qty.value;
-    
-    
-    // for (let i = 0; i < itemName.length; i++) {
-      
-      if (itemName.innerText === itemName) {
-        alert("Item already added to cart");
-        
-      //}
-    }
-
-    
-    // qty.value++;
-    // button.removeEventListener("click", run);
-
-    // let text = document.createTextNode("hello");
-    // let img = document.createElement("img");
-    // let btn = document.createElement("button");
-    // let btnTxt = document.createTextNode("Checkout");
-    // img.src = "images/image-product-2-thumbnail.jpg";
-    // tag.append(img);
-    // tag.appendChild(text);
-    // btn.appendChild(btnTxt);
-    // tag.append(btn);
-    // cardDetails.appendChild(tag);
   }
 }
+
+
+
+
+
+// button.addEventListener("click", run); //{ once: true }
+// function run() {
+
+//     // qty.value++;
+//     // button.removeEventListener("click", run);
+
+//     // let text = document.createTextNode("hello");
+//     // let img = document.createElement("img");
+//     // let btn = document.createElement("button");
+//     // let btnTxt = document.createTextNode("Checkout");
+//     // img.src = "images/image-product-2-thumbnail.jpg";
+//     // tag.append(img);
+//     // tag.appendChild(text);
+//     // btn.appendChild(btnTxt);
+//     // tag.append(btn);
+//     // cardDetails.appendChild(tag);
+//   }
+//
