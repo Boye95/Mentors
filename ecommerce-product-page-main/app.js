@@ -30,61 +30,62 @@ let button = document.querySelectorAll(".btn");
 let p = document.querySelector(".p");
 
 button.forEach((btn) => {
-  btn.addEventListener("click", addItem);
-});
+  btn.addEventListener("click", () => {
+    if (text.textContent > 0) {
+      p.remove();
+      // the client generated cart items
+      let itemName = document.querySelector(".h1").innerText;
+      let cardDetails = document.querySelector(".cart-details");
+      let tag = document.createElement("div");
+      tag.classList.add("item-cart");
 
-function addItem() {
-  if (text.textContent > 0) {
-    p.remove();
-    // the client generated cart items
-    let itemName = document.querySelector(".h1").innerText;
-    let cardDetails = document.querySelector(".cart-details");
-    let tag = document.createElement("div");
-    tag.classList.add("item-cart");
-    tag.innerHTML = `
-      <img 
-        src="images/image-product-2-thumbnail.jpg" 
-        alt="small-cart-img" 
-        class="small-cart-img"
-      >
-      <span class="item-name">
-        ${itemName}
-      </span>
-      <div id="qty-div">
-        <label for="qty-no">QTY</label>
-        <select name="qty-no" id="qty-no">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-      </div>
-      `;
-    cardDetails.appendChild(tag);
-    let spanName = document.querySelectorAll(".item-name");
-    spanName.forEach((span) => {
-      if (span.innerText.trim() === itemName) {
-        button.removeEventListener("click", addItem);
-        console.log("Item already added to cart");
-        
+      // referenced the each item that is added to the cart
+      let spanName = cardDetails.querySelectorAll(".item-name");
+
+      // then ran a loop through all the items with the class .item-name
+      for (let i = 0; i < spanName.length; i++) {
+        // I checked if an item with similar has been added to the cart
+        if (spanName[i].innerText === itemName) {
+          // you can change/remove the alert function if prefer another way of displaying the warning
+          alert('item already to cart');
+          // the return statement stops the code below from running if the above condition is true
+          return;
+        }
       }
-      // console.log(span.innerText.trim());
-      // console.log(itemName);
-    });
+      
+      
+      tag.innerHTML = `
+        <img 
+          src="images/image-product-2-thumbnail.jpg" 
+          alt="small-cart-img" 
+          class="small-cart-img"
+        >
+        <span class="item-name">
+          ${itemName}
+        </span>
+        <div id="qty-div">
+          <label for="qty-no">QTY</label>
+          <select name="qty-no" id="qty-no">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+        `;
+      cardDetails.appendChild(tag);
+      
 
-    
-    // increase quantity of the client generated cart items
-    let qty = document.querySelector("#qty-no");
-    let option = document.querySelectorAll("option");
-    qty.value = text.textContent;
-    option.innerHTML = qty.value;
-  }
-}
-
-
-
-
+      
+      // increase the value of the quantity of each client generated cart items
+      let qty = document.querySelector("#qty-no");
+      let option = document.querySelectorAll("option");
+      qty.value = text.textContent;
+      option.innerHTML = qty.value;
+    }
+  });
+});
 
 // button.addEventListener("click", run); //{ once: true }
 // function run() {
